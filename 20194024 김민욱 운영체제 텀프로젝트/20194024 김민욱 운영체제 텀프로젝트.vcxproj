@@ -21,6 +21,11 @@
   <ItemGroup>
     <ClCompile Include="Cpu-Scheduling-Simulator.c" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FCFS.h" />
+    <ClInclude Include="Process.h" />
+    <ClInclude Include="View_Table.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
