@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <Windows.h>
 
 typedef struct _process { // 프로세스 구조체 선언
 	char id[20]; // 프로세스 id - File

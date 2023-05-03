@@ -23,7 +23,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FCFS.h" />
+    <ClInclude Include="Function_to_Sorting.h" />
+    <ClInclude Include="HRN.h" />
+    <ClInclude Include="NPPS.h" />
+    <ClInclude Include="PPS.h" />
     <ClInclude Include="Process.h" />
+    <ClInclude Include="SJF.h" />
     <ClInclude Include="View_Table.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
