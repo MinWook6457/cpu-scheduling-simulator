@@ -50,8 +50,7 @@ void HRN_print_gantt_chart(Process* p, int n,char *check_id)
 
 	printf("┏");
 	/* 상단 바 출력 */
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		for (int j = 0; j < p[i].run_time; j++)
 			printf("━━");
 
@@ -65,8 +64,7 @@ void HRN_print_gantt_chart(Process* p, int n,char *check_id)
 	printf("\n┃");
 
 	/* 프로세스 이름 출력 */
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		for (int j = 0; j < p[i].run_time - 1; j++)
 			printf(" ");
 
@@ -81,8 +79,7 @@ void HRN_print_gantt_chart(Process* p, int n,char *check_id)
 	printf("\n");
 	printf("┗");
 	/* 하단 바 출력 */
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		for (int j = 0; j < p[i].run_time; j++)
 			printf("━━");
 
@@ -97,8 +94,7 @@ void HRN_print_gantt_chart(Process* p, int n,char *check_id)
 	/* 프로세스 시간 출력 */
 	printf("0");
 
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		for (int j = 0; j < p[i].run_time; j++)
 			printf("  ");
 
@@ -137,8 +133,7 @@ void HRN_Scheduling(Process* p, int n) {
 
 	while(current_time < total_run_time){ // 증가된 현재 시간이 총 프로세스 시간보다 크다면 모든 프로세스를 돌았음.
 		hrr = -9999.0;
-		for (int i = 0; i < n; i++)
-		{
+		for (int i = 0; i < n; i++){
 			if ((p[i].arrival_time <= current_time) && (p[i].completed == false)) {// 가장 처음 들어온 프로세스 부터 실행
 				temp = (p[i].run_time + (current_time - p[i].arrival_time)) / p[i].run_time;
 				// (실행시간 + 대기시간) / 실행시간 으로 우선순위 계산

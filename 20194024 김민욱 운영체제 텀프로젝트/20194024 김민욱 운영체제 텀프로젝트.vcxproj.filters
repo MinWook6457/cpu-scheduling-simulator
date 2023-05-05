@@ -44,5 +44,11 @@
     <ClInclude Include="Function_to_Sorting.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="RR.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SRT.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

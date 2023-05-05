@@ -4,7 +4,6 @@
 #include "Process.h"
 #include <stdio.h>
 
-
 int compare_return_time(const void* a, const void* b) // 오름차순 비교 함수 구현
 {
 	Process p1 = *(Process*)a;

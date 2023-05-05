@@ -20,18 +20,22 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include "Process.h"
 #include "FCFS.h"
 #include "SJF.h"
 #include "NPPS.h"
 #include "HRN.h"
 #include "PPS.h"
+#include "RR.h"
+#include "SRT.h"
+
 #pragma warning(disable:4996)
 
 
 int main() {
 	int process_count = 0; // 프로세스 갯수를 저장할 변수
-
-	int quantum = 0; // RR 스케쥴링에서 사용될 변수
+	
+	Quantum quantum;
 
 	FILE* fp = fopen("Process.txt", "r"); // 파일 읽기 모드로 열기
 
@@ -62,6 +66,8 @@ int main() {
 	HRN_Scheduling(process, process_count);
 
 	PPS_Scheduling(process, process_count);
+
+	RR_Scheduling(process, process_count,quantum);
 
 	return 0;
 }

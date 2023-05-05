@@ -121,7 +121,7 @@ void FCFS_Scheduling(Process* p, int pc) {
 		p[i].waiting_time = total_return_time - p[i].arrival_time; // 각 프로세스 대기시간 = 총 반환시간 - 도착시간 
 		p[i].return_time = total_return_time + p[i].run_time; // 각 프로세스 반환시간 = 총 반환시간 + 실행시간
 		p[i].turnAround_time = p[i].return_time - p[i].arrival_time; // 각 프로세스 소요시간 = 각 프로세스 반환시간 - 도착시간
-		p[i].response_time += p[i].waiting_time; // 반응시간 = 대기시간
+		p[i].response_time += p[i].waiting_time; // 반응시간 += 대기시간
 
 		/* 실행된 프로세스 만큼 사용률 증가 */
 		total_return_time += p[i].run_time;

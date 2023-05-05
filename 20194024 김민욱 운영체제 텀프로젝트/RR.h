@@ -134,25 +134,20 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 		for (int i = 0; i < n; i++){
 			if (remain_run_time[i] > 0){
 				check = false;
-				if (remain_run_time[i] < quantum)
-				{
+				if (remain_run_time[i] < quantum){
 					printf(" | ");
 					if (remain_run_time[i] != 1){
 						printf(" %s ", p[i].id);
 					}
-					else
+					else {
 						printf(" %s ", p[i].id);
-				}
-
-				else
-				{
+					}
+				}else{
 					printf("早");
 					printf(" %s ", p[i].id);
-
 				}
 
-				if (remain_run_time[i] > quantum)
-				{
+				if (remain_run_time[i] > quantum){
 					current_time += quantum;
 					remain_run_time[i] -= quantum;
 				}else
@@ -161,8 +156,6 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 					p[i].waiting_time = current_time - p[i].run_time;
 					remain_run_time[i] = 0;
 				}
-
-
 			}
 		}
 
@@ -172,8 +165,7 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 
 	printf("早\n");
 
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		remain_run_time[i] = p[i].run_time;
 	}
 
@@ -184,39 +176,29 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 	while (true)
 	{
 		bool check = true;
-
-		for (int i = 0; i < n; i++)
-		{
-			if (remain_run_time[i] > 0)
-			{
+		for (int i = 0; i < n; i++){
+			if (remain_run_time[i] > 0){
 				check = false;
 
-				if (remain_run_time[i] < quantum)
-				{
-					for (int j = 0; j < remain_run_time[i]; j++)
+				if (remain_run_time[i] < quantum){
+					for (int j = 0; j < remain_run_time[i]; j++) {
 						printf("1");
-				}
-				else
-				{
-					for (int j = 0; j < quantum; j++)
+					}
+				}else{
+					for (int j = 0; j < quantum; j++) {
 						printf("收收");
+					}
 				}
 
-				if (remain_run_time[i] > quantum)
-				{
+				if (remain_run_time[i] > quantum){
 					current_time += quantum;
 					remain_run_time[i] -= quantum;
 					printf("收收");
-				}
-
-				else
-				{
+				}else{
 					current_time += remain_run_time[i];
 					p[i].waiting_time = current_time - p[i].run_time;
 					remain_run_time[i] = 0;
 				}
-
-
 			}
 		}
 
@@ -235,33 +217,23 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 	{
 		int check = true;
 
-		for (int i = 0; i < n; i++)
-		{
-			if (remain_run_time[i] > 0)
-			{
+		for (int i = 0; i < n; i++){
+			if (remain_run_time[i] > 0){
 				check = false;
 
-				if (remain_run_time[i] < quantum)
-				{
+				if (remain_run_time[i] < quantum){
 					printf("%d", current_time);
-				}
-
-				else
-				{
+				}else{
 					printf("%d", current_time);
 
-					for (int j = 0; j < quantum / 2  ; j++)
+					for (int j = 0; j < quantum / 2; j++) {
 						printf("   ");
+					}
 				}
-
-				if (remain_run_time[i] > quantum)
-				{
+				if (remain_run_time[i] > quantum){
 					current_time += quantum;
 					remain_run_time[i] -= quantum;
-				}
-
-				else
-				{
+				}else{
 					current_time += remain_run_time[i];
 					p[i].waiting_time = current_time - p[i].run_time;
 					remain_run_time[i] = 0;

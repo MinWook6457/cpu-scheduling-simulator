@@ -15,8 +15,7 @@ if priority(current_process) = priority(prior_process) :- then execute the proce
 #include <Windows.h>
 #include "View_Table.h"
 #include "Function_to_Sorting.h"
-#include "FCFS.h"
-Process tmp[100];
+
 void PPS_print_gantt_chart(Process* p, int n) {
 	textcolor(6);
 	printf("\tPreemptive Priority Scheduling\n");
@@ -26,9 +25,21 @@ void PPS_print_gantt_chart(Process* p, int n) {
 
 	int priority, distance;
 
-	int* remain_run_time = (int*)malloc(sizeof(int) * n); // 남은시간을 저장할 배열 동적 할당
+	int* remain_run_time = NULL;
+	remain_run_time = (int*)malloc(sizeof(int) * n); // 남은시간을 저장할 배열 동적 할당
 
-	int* response = (int*)malloc(sizeof(int) * n); // 응답 시간을 확인할 배열 동적 할당 
+	if (remain_run_time == NULL) {      // 메모리 할당 실패
+		printf("Not enough memory!");     // 오류 상황 알림
+		return -1;                        // 함수 종료
+	}
+
+	int* response = NULL;
+	response = (int*)malloc(sizeof(int) * n); // 응답 시간을 확인할 배열 동적 할당 
+
+	if (response == NULL) {    // 메모리 할당 실패
+		printf("Not enough memory!");     // 오류 상황 알림
+		return -1;                        // 함수 종료
+	}
 
 	for (int i = 0; i < n; i++) {
 		response[i] = 0;
@@ -42,33 +53,26 @@ void PPS_print_gantt_chart(Process* p, int n) {
 	{
 		priority = INT_MAX;
 
-		if (current_time <= p[n - 1].arrival_time)
-		{
-			for (int i = 0; i < n; i++)
-			{
+		if (current_time <= p[n - 1].arrival_time){
+			for (int i = 0; i < n; i++){
 				if ((p[i].completed == false) && (p[i].arrival_time <= current_time)) {
-					if (priority > p[i].priority)
-					{
+					if (priority > p[i].priority){
+						priority = p[i].priority;
+						k = i;
+					}
+				}
+			}
+		}else{
+			for (int i = 0; i < n; i++){
+				if (p[i].completed == false){
+					if (priority > p[i].priority){
 						priority = p[i].priority;
 						k = i;
 					}
 				}
 			}
 		}
-		else
-		{
-			for (int i = 0; i < n; i++)
-			{
-				if (p[i].completed == false)
-				{
-					if (priority > p[i].priority)
-					{
-						priority = p[i].priority;
-						k = i;
-					}
-				}
-			}
-		}
+
 		if (pre_k != k)
 			printf(" ");
 
@@ -82,8 +86,7 @@ void PPS_print_gantt_chart(Process* p, int n) {
 			p[k].completed = true;
 	}
 
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		remain_run_time[i] = p[i].run_time;
 		p[i].completed = false;
 	}
@@ -92,8 +95,7 @@ void PPS_print_gantt_chart(Process* p, int n) {
 	current_time = 0;
 
 	/* 프로세스 ID 출력 */
-	while (current_time < total_run_time)
-	{
+	while (current_time < total_run_time){
 		priority = INT_MAX;
 		if (current_time <= p[n - 1].arrival_time){
 			for (int i = 0; i < n; i++){
@@ -105,24 +107,19 @@ void PPS_print_gantt_chart(Process* p, int n) {
 				}
 			}
 		}else{
-			for (int i = 0; i < n; i++)
-			{
-				if (p[i].completed == false)
-				{
-					if (priority > p[i].priority)
-					{
+			for (int i = 0; i < n; i++){
+				if (p[i].completed == false){
+					if (priority > p[i].priority){
 						priority = p[i].priority;
 						k = i;
 					}
 				}
 			}
 		}
-		if (current_time == 0)
-		{
+		if (current_time == 0){
 			response[k]++;
 			printf("  ");
-		}else
-		{	
+		}else{	
 			if (pre_k != k){
 				distance = response[pre_k] + 1;
 				// 두 프로세스 시간 차이 저장
@@ -143,26 +140,26 @@ void PPS_print_gantt_chart(Process* p, int n) {
 					printf(" ");
 
 				printf("│  ");
-			}/* 같은 프로세스일 경우 */
-			else
+			}else // 같은 프로세스일 경우 
 			{
 				// 현재 프로세스 카운트 증가
 				response[k]++;
 				printf("  "); // 공백 출력
 				/* 마지막 프로세스 실행일 경우 */
-				if (current_time == total_run_time - 1)
-				{
+				if (current_time == total_run_time - 1){
 					distance = response[pre_k] + 1;
 					response[pre_k] = 0;
 					response[k]++;
 
-					for (int i = 0; i < distance  ; i++)
+					for (int i = 0; i < distance; i++) {
 						printf("\b");
+					}
 
 					printf("%2s", p[pre_k].id);
 
-					for (int i = 0; i < distance - 2 ; i++)
+					for (int i = 0; i < distance - 2; i++) {
 						printf(" ");
+					}
 				}
 			}
 		}
@@ -175,8 +172,7 @@ void PPS_print_gantt_chart(Process* p, int n) {
 			p[k].completed = true;
 	}
 
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		remain_run_time[i] = p[i].run_time;
 		p[i].completed = false;
 	}
@@ -185,37 +181,29 @@ void PPS_print_gantt_chart(Process* p, int n) {
 	printf("\n");
 	printf("└");
 
-	while (current_time < total_run_time)
-	{
+	while (current_time < total_run_time){
 		priority = INT_MAX;
 
-		if (current_time <= p[n - 1].arrival_time)
-		{
-			for (int i = 0; i < n; i++)
-			{
+		if (current_time <= p[n - 1].arrival_time){
+			for (int i = 0; i < n; i++){
 				if ((p[i].completed == false) && (p[i].arrival_time <= current_time)){
-					if (priority > p[i].priority)
-					{
+					if (priority > p[i].priority){
+						priority = p[i].priority;
+						k = i;
+					}
+				}
+			}
+		}else{
+			for (int i = 0; i < n; i++){
+				if (p[i].completed == false){
+					if (priority > p[i].priority){
 						priority = p[i].priority;
 						k = i;
 					}
 				}
 			}
 		}
-		else
-		{
-			for (int i = 0; i < n; i++)
-			{
-				if (p[i].completed == false)
-				{
-					if (priority > p[i].priority)
-					{
-						priority = p[i].priority;
-						k = i;
-					}
-				}
-			}
-		}
+
 		if (pre_k != k)
 			printf(" ");
 
@@ -229,8 +217,7 @@ void PPS_print_gantt_chart(Process* p, int n) {
 			p[k].completed = true;
 	}
 
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++){
 		remain_run_time[i] = p[i].run_time;
 		p[i].completed = false;
 	}
@@ -241,35 +228,21 @@ void PPS_print_gantt_chart(Process* p, int n) {
 	printf("\n");
 
 	/* 프로세스 ID 출력과 같은 방법으로 실행하며 시간 출력 */
-	while (current_time <= total_run_time)
-	{
-		if (total_run_time != current_time)
-		{
+	while (current_time <= total_run_time){
+		if (total_run_time != current_time){
 			priority = INT_MAX;
-
-			if (current_time <= p[n - 1].arrival_time)
-			{
-				for (int i = 0; i < n; i++)
-				{
-					if ((p[i].completed == false)
-						&& (p[i].arrival_time <= current_time))
-					{
-						if (priority > p[i].priority)
-						{
+			if (current_time <= p[n - 1].arrival_time){
+				for (int i = 0; i < n; i++){
+					if ((p[i].completed == false) && (p[i].arrival_time <= current_time)){
+						if (priority > p[i].priority){
 							priority = p[i].priority;
 							k = i;
 						}
 					}
 				}
-			}
-
-			else
-			{
-				for (int i = 0; i < n; i++)
-				{
-					if ((p[i].completed == false)
-						&& (priority > p[i].priority))
-					{
+			}else{
+				for (int i = 0; i < n; i++){
+					if ((p[i].completed == false) && (priority > p[i].priority)){
 						priority = p[i].priority;
 						k = i;
 					}
@@ -290,10 +263,9 @@ void PPS_print_gantt_chart(Process* p, int n) {
 
 				previous_time = current_time;
 			}
-
-			else
+			else {
 				distance++;
-
+			}
 			remain_run_time[k]--;
 			current_time++;
 			pre_k = k;
@@ -314,9 +286,12 @@ void PPS_print_gantt_chart(Process* p, int n) {
 	}
 
 	printf("\n"); 
-
-	// free(distance);
-	// free(remain_run_time);
+	if (response != NULL)
+		free(response);
+	
+	if (remain_run_time != NULL)
+		free(remain_run_time);
+	
 }
 
 void PPS_Process_Time(Process* p, int n) {
@@ -327,10 +302,21 @@ void PPS_Process_Time(Process* p, int n) {
 	int k = 0;// 현재 실행할 프로세스 번호
 
 	
-	int* remain_run_time = (int*)malloc(sizeof(int) * n); // 남은시간을 저장할 배열 동적 할당
-	
-	int* response = (int*)malloc(sizeof(int) * n); // 응답 시간을 확인할 배열 동적 할당 
+	int* remain_run_time = NULL;
+	remain_run_time = (int*)malloc(sizeof(int) * n); // 남은시간을 저장할 배열 동적 할당
 
+	if (remain_run_time == NULL) {      // 메모리 할당 실패
+		printf("Not enough memory!");     // 오류 상황 알림
+		return -1;                        // 함수 종료
+	}
+
+	int* response = NULL;
+	response = (int*)malloc(sizeof(int) * n); // 응답 시간을 확인할 배열 동적 할당 
+
+	if (response == NULL) {      // 메모리 할당 실패
+		printf("Not enough memory!");     // 오류 상황 알림
+		return -1;                        // 함수 종료
+	}
 	// qsort_arrival_time(p, n);
 
 	for (int i = 0; i < n; i++){
@@ -411,13 +397,9 @@ void PPS_Scheduling(Process* p, int pc) {
 
 	for (int i = 0; i < pc; i++) {
 		p[i].turnAround_time = p[i].return_time - p[i].arrival_time;
-		// 턴어라운드 타임 계산
 		total_waiting_time += p[i].waiting_time;
-		// 총 대기 시간 증가
 		total_turnAround_time += p[i].turnAround_time;
-		// 총 턴어라운드 타임 증가
 		total_response_time += p[i].response_time;
-		// 총 응답 시간 증가
 	}
 
 	qsort_return_time(p, pc);

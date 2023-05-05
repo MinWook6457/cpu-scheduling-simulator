@@ -28,7 +28,9 @@
     <ClInclude Include="NPPS.h" />
     <ClInclude Include="PPS.h" />
     <ClInclude Include="Process.h" />
+    <ClInclude Include="RR.h" />
     <ClInclude Include="SJF.h" />
+    <ClInclude Include="SRT.h" />
     <ClInclude Include="View_Table.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

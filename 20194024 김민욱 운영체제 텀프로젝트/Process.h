@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <malloc.h>
 #include <Windows.h>
 
 typedef struct _process { // 프로세스 구조체 선언
@@ -17,6 +18,8 @@ typedef struct _process { // 프로세스 구조체 선언
 	int turnAround_time; // 프로세스 소요시간
 	bool completed;
 }Process;
+
+typedef int Quantum; // 시간 할당량 Quantum 키워드 사용
 
 void Process_init(Process p[], int n) // 프로세스 초기화 함수
 {
