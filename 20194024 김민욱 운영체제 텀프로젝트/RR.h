@@ -92,8 +92,7 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 	printf("┏");
 
 	/* 상단 바 출력 */
-	while (true)
-	{
+	while (true){
 		bool check = true;
 		for (int i = 0; i < n; i++){
 			if (remain_run_time[i] > 0){
@@ -128,8 +127,7 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 	}
 
 	/* 프로세스 아이디 출력 */
-	while (true)
-	{
+	while (true){
 		int check = true;
 		for (int i = 0; i < n; i++){
 			if (remain_run_time[i] > 0){
@@ -173,8 +171,7 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 	printf("┗");
 
 	/* 하단 바 출력 */
-	while (true)
-	{
+	while (true){
 		bool check = true;
 		for (int i = 0; i < n; i++){
 			if (remain_run_time[i] > 0){
@@ -213,8 +210,7 @@ void RR_print_gantt_chart(Process* p, int n, Quantum quantum)
 	current_time = 0;
 
 	/* 프로세스 시간 출력 */
-	while (true)
-	{
+	while (true){
 		int check = true;
 
 		for (int i = 0; i < n; i++){

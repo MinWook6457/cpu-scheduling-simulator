@@ -28,6 +28,7 @@
 #include "PPS.h"
 #include "RR.h"
 #include "SRT.h"
+#include "Function_to_Sorting.h"
 
 #pragma warning(disable:4996)
 
@@ -68,6 +69,8 @@ int main() {
 	PPS_Scheduling(process, process_count);
 
 	RR_Scheduling(process, process_count,quantum);
+
+	SRT_Scheduling(process, process_count);
 
 	return 0;
 }

@@ -48,7 +48,7 @@ void PPS_print_gantt_chart(Process* p, int n) {
 		p[i].completed = false; // 완료상태 초기화
 	}
 	/* 상단 바 출력 */
-	printf("┌");
+	printf("┏");
 	while (current_time < total_run_time)
 	{
 		priority = INT_MAX;
@@ -73,10 +73,16 @@ void PPS_print_gantt_chart(Process* p, int n) {
 			}
 		}
 
-		if (pre_k != k)
-			printf(" ");
+		if (pre_k != k) {
+			if (current_time == 0) {
+				printf(" ");
+			}
+			else {
+				printf("┳");
+			}
+		}
 
-		printf("--");
+		printf("━━");
 
 		remain_run_time[k]--;
 		current_time++;
@@ -90,8 +96,8 @@ void PPS_print_gantt_chart(Process* p, int n) {
 		remain_run_time[i] = p[i].run_time;
 		p[i].completed = false;
 	}
-	printf("┐");
-	printf("\n│ ");
+	printf("┓");
+	printf("\n┃ ");
 	current_time = 0;
 
 	/* 프로세스 ID 출력 */
@@ -139,7 +145,7 @@ void PPS_print_gantt_chart(Process* p, int n) {
 				for (int i = 0; i < distance - 2; i++)
 					printf(" ");
 
-				printf("│  ");
+				printf("┃  ");
 			}else // 같은 프로세스일 경우 
 			{
 				// 현재 프로세스 카운트 증가
@@ -177,9 +183,9 @@ void PPS_print_gantt_chart(Process* p, int n) {
 		p[i].completed = false;
 	}
 	current_time = 0;
-	printf("│");
+	printf("┃");
 	printf("\n");
-	printf("└");
+	printf("┗");
 
 	while (current_time < total_run_time){
 		priority = INT_MAX;
@@ -204,10 +210,15 @@ void PPS_print_gantt_chart(Process* p, int n) {
 			}
 		}
 
-		if (pre_k != k)
-			printf(" ");
-
-		printf("--");
+		if (pre_k != k) {
+			if (current_time == 0) {
+				printf(" ");
+			}
+			else {
+				printf("┻");
+			}
+		}
+		printf("━━");
 
 		remain_run_time[k]--;
 		current_time++;
@@ -224,7 +235,7 @@ void PPS_print_gantt_chart(Process* p, int n) {
 
 	current_time = 0;
 	distance = 0;
-	printf("┘");
+	printf("┛");
 	printf("\n");
 
 	/* 프로세스 ID 출력과 같은 방법으로 실행하며 시간 출력 */
@@ -249,9 +260,7 @@ void PPS_print_gantt_chart(Process* p, int n) {
 				}
 			}
 
-
-			if (pre_k != k)
-			{
+			if (pre_k != k){
 				for (int i = 0; i < distance && current_time != 0; i++)
 					printf("  ");
 
@@ -353,8 +362,7 @@ void PPS_Process_Time(Process* p, int n) {
 		// k는 알고리즘을 거쳐 선택된 프로세스
 
 		/* 선택된 프로세스가 처음 시작될 경우 */
-		if (response[k] == 0)
-		{
+		if (response[k] == 0){
 			response[k]++;
 			// 초기 실행이 아님을 표시
 			p[k].response_time = current_time;
@@ -367,8 +375,7 @@ void PPS_Process_Time(Process* p, int n) {
 		// 현재 시간 증가
 
 		/* 프로세스의 남은 실행 시간이 0이될 경우 */
-		if (remain_run_time[k] == 0)
-		{
+		if (remain_run_time[k] == 0){
 			p[k].completed = true;
 			// 완료 상태로 변경
 			p[k].waiting_time = current_time - p[k].run_time - p[k].arrival_time;

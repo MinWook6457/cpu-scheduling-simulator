@@ -116,11 +116,12 @@ void NPPS_Scheduling(Process* p, int pc) {
 
 	Process_init(p, pc);
 
+	qsort_arrival_time(p, pc);
+
 	char check_id[10];
 	strcpy(check_id, p[0].id); // 가장 처음으로 들어온 PID 저장
 
-	qsort_arrival_time(p, pc);
-
+	
 	NPPS_Process_Time(p, pc, check_id);
 
 	for (int i = 0; i < pc; i++) {
