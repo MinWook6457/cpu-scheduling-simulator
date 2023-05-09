@@ -21,7 +21,7 @@ Quantum = 2
 ## Code
 
 ## FCFS
-[[CODE]](https://github.com/MinWook6457/cpu-scheduling-simulator/blob/master/FCFS.h)
+[[CODE]](https://github.com/MinWook6457/cpu-scheduling-simulator/blob/master/20194024김민욱%20운영체제%20텀프로젝트/FCFS.h)
 
 ## Help
 [github] https://github.com/alstn2468/cpu-scheduling-simulator
