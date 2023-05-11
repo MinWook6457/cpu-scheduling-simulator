@@ -28,7 +28,7 @@ Quantum = 2
 ![FCFS](https://user-images.githubusercontent.com/103114126/237011748-4e807122-1b16-4560-a591-48848308c260.PNG)
 
 
-## Help
+## Refer To
 [github] https://github.com/alstn2468/cpu-scheduling-simulator
 
 [github] https://github.com/tapaswenipathak/Visualization-of-CPU-Scheduling-Algorithms
