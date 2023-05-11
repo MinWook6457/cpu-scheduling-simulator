@@ -36,7 +36,7 @@
 int main() {
 	int process_count = 0; // 프로세스 갯수를 저장할 변수
 	
-	Quantum quantum;
+	Quantum quantum; // 퀀텀 변수 선언
 
 	FILE* fp = fopen("Process.txt", "r"); // 파일 읽기 모드로 열기
 
@@ -55,7 +55,7 @@ int main() {
 		// printf("%s %d %d %d\n", process[i].id, process[i].arrival_time, process[i].run_time, process[i].priority);
 	}
 
-	fscanf(fp, "%d", &quantum); // 파일에서 읽은 퀀텀 갯수 저장
+	fscanf(fp, "%d", &quantum); // 파일에서 읽은 퀀텀 개수 저장
 	// printf("%d", quantum);
 
 	FCFS_Scheduling(process, process_count);
@@ -71,6 +71,10 @@ int main() {
 	RR_Scheduling(process, process_count,quantum);
 
 	SRT_Scheduling(process, process_count);
+
+	free(process);
+
+	qsort
 
 	return 0;
 }

@@ -1,6 +1,16 @@
 #ifndef _FCFS_
 #define _FCFS_
 
+/*
+	헤더명 : FCFS.h(First Come First Served Scheduling)
+	내용 : 준비 큐에 도착한 순서대로 CPU를 할당하는 비선점형방식
+	입력 : 프로세스 포인터, 프로세스 갯수
+	출력 : FCFS 스케쥴링으로 인한
+	각 프로세스별 대기시간, 평균 대기 시간,
+	각 프로세스별 응답시간, 평균 응답시간,
+	각 프로세스별 반환 시간, 평균 반환 시간
+*/
+
 #include "Process.h"
 #include "Function_to_Sorting.h"
 #include "View_Table.h"
@@ -10,15 +20,7 @@
 void textcolor(int colorNum) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), colorNum);
 }
-/*
-	함수명 : FCFS_Scheduling(First Come First Served)
-	내용 : 준비 큐에 도착한 순서대로 CPU를 할당하는 비선점형방식
-	입력 : 프로세스 포인터, 프로세스 갯수
-	출력 : FCFS 스케쥴링으로 인한
-	각 프로세스별 대기시간, 평균 대기 시간,
-	각 프로세스별 응답시간, 평균 응답시간,
-	각 프로세스별 반환 시간, 평균 반환 시간
-*/
+
 void FCFS_print_gantt_chart(Process* p, int n)
 {	// 반복문에서 사용할 변수 선언
 
@@ -105,14 +107,14 @@ void FCFS_Scheduling(Process* p, int pc) {
 	/* 맨 처음 들어온 프로세스 실행 */
 	p[0].return_time = p[0].run_time; // 파일에서 받은 run_time을 return_time에 대입
 	p[0].turnAround_time = p[0].return_time - p[0].arrival_time; // 반환시간 = 실행시간 - 대기시간
-	p[0].response_time = 0;
-	p[0].waiting_time = 0;
+	p[0].response_time = 0; // 응답시간 초기화
+	p[0].waiting_time = 0; // 대기시간 초기화
 
 	/* 실행된 프로세스 만큼 사용률 증가 */
-	total_waiting_time += p[0].waiting_time;
-	total_turnAround_time += p[0].turnAround_time;
-	total_response_time += p[0].response_time;
-	total_return_time += p[0].run_time;
+	total_waiting_time += p[0].waiting_time; // 총 대기시간 증가
+	total_turnAround_time += p[0].turnAround_time; // 총 소요시간 증가
+	total_response_time += p[0].response_time; // 총 응답시간 증가
+	total_return_time += p[0].run_time; // 총 실행시간 증가
 
 	// 선입 선출 구조로 들어오는 순서대로 프로세스 계산
 	for (int i = 1; i < pc; i++)
@@ -124,13 +126,13 @@ void FCFS_Scheduling(Process* p, int pc) {
 		p[i].response_time += p[i].waiting_time; // 반응시간 += 대기시간
 
 		/* 실행된 프로세스 만큼 사용률 증가 */
-		total_return_time += p[i].run_time;
-		total_waiting_time += p[i].waiting_time;
-		total_turnAround_time += p[i].turnAround_time;
-		total_response_time += p[i].response_time;
+		total_return_time += p[i].run_time; // 총 반환시간 증가
+		total_waiting_time += p[i].waiting_time; // 총 대기시간 증가
+		total_turnAround_time += p[i].turnAround_time; // 총 소요시간 증가
+		total_response_time += p[i].response_time; // 총 응답시간 증가
 	}
-	FCFS_print_gantt_chart(p, pc);
-	view_table(p, pc);
+	FCFS_print_gantt_chart(p, pc); // 간트차트 그리기
+	view_table(p, pc); // 테이블 그리기
 	printf("\n");
 	printf("Average Total Waiting time = %.2lf\n", (double)total_waiting_time / (double)pc); // 평균 대기 시간
 	printf("Average Total turnAround time = %.2lf\n", (double)total_turnAround_time / (double)pc); // 평균 반환 시간

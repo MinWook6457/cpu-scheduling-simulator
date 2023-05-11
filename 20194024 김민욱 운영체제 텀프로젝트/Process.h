@@ -6,6 +6,10 @@
 #include <stdbool.h>
 #include <malloc.h>
 #include <Windows.h>
+/*
+	헤더명 : FCFS.h(First Come First Served)
+	내용 : 프로세스 구조체 선언, 퀀텀 키워드 선언, 프로세스 함수 초기화
+*/
 
 typedef struct _process { // 프로세스 구조체 선언
 	char id[20]; // 프로세스 id - File

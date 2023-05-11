@@ -1,12 +1,12 @@
 ﻿  Cpu-Scheduling-Simulator.c
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\HRN.h(16,9): warning C4129: 'H': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\HRN.h(132,21): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\HRN.h(149,82): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\HRN.h(150,52): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(33,12): warning C4098: 'PPS_print_gantt_chart': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(41,12): warning C4098: 'PPS_print_gantt_chart': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(319,12): warning C4098: 'PPS_Process_Time': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(327,12): warning C4098: 'PPS_Process_Time': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\SRT.h(139,19): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\HRN.h(24,9): warning C4129: 'H': 문자 이스케이프 시퀀스를 인식할 수 없습니다.
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\HRN.h(140,21): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\HRN.h(157,82): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\HRN.h(158,52): warning C4244: '=': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(39,12): warning C4098: 'PPS_print_gantt_chart': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(47,12): warning C4098: 'PPS_print_gantt_chart': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(321,12): warning C4098: 'PPS_Process_Time': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(329,12): warning C4098: 'PPS_Process_Time': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\SRT.h(153,19): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
 C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\Function_to_Sorting.h(44): warning C4715: 'compare_priority_time': 모든 제어 경로에서 값을 반환하지는 않습니다.
   20194024 김민욱 운영체제 텀프로젝트.vcxproj -> C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\x64\Debug\20194024 김민욱 운영체제 텀프로젝트.exe

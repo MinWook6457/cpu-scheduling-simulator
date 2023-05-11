@@ -2,15 +2,13 @@
 #define __SJF__
 
 /*
-	함수명 : SJF_Scheduling(Shortest Job First)
+	헤더명 : SJF.h(Shortest Job First Scheduling)
 	내용 : 준비 큐에 있는 프로세스 중에서 실행 시간이 가장 짧은 작업부터 CPU를 할당하는 비선점형 방식
 	입력 : 프로세스 포인터, 프로세스 갯수
 	출력 : SJF 스케쥴링으로 인한
 	각 프로세스별 대기시간, 평균 대기 시간,
 	각 프로세스별 응답시간, 평균 응답시간,
 	각 프로세스별 반환 시간, 평균 반환 시간
-
-	작업이 밀리는 현상인 아사현상까지 고려하여 SJF 스케쥴링 구현
 */
 #pragma warning(disable:4996)
 #include "Process.h"
@@ -47,7 +45,6 @@ void SJF_print_gantt_chart(Process* p, int n, char* check_id)
 	}
 
 	Process Temp = tmp[check_num]; // Temp에 추출된 인덱스가 해당하는 프로세스 저장
-
 	for (int i = 0; i < check_num; i++) { // 가장 먼저 실행된 프로세스를 맨 앞으로 보내기 위해서 구조체 배열을 뒤로 민다.
 		p[i + 1] = tmp[i];
 	}

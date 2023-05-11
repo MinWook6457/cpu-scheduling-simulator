@@ -2,7 +2,13 @@
 #define __SRT__
 
 /*
-	Shortest Remaining Time Scheduling
+	헤더명 : SRT.h(Shortest Remaining Time Scheduling)
+	내용 : CPU를 할당받을 프로세스를 선택할 때 남아 있는 작업 시간이 가장 적은 프로세스를 선택
+	입력 : 프로세스 포인터, 프로세스 갯수
+	출력 : SJF 스케쥴링으로 인한
+	각 프로세스별 대기시간, 평균 대기 시간,
+	각 프로세스별 응답시간, 평균 응답시간,
+	각 프로세스별 반환 시간, 평균 반환 시간
 */
 
 #include "Process.h"
@@ -19,12 +25,22 @@ void SRT_Process_System(Process* p, int n) {
 
 	int k = 0;
 
-	int* remain_run_time = (int*)malloc(sizeof(int) * n);
+	int* remain_run_time = NULL;
+	remain_run_time = (int*)malloc(sizeof(int) * n);
+	if (remain_run_time == NULL) {
+		fprintf(stderr, "메모리 할당 실패\n");
+		exit(1);
+	}
 
 	int* check_response = (int*)malloc(sizeof(int) * n);
+	check_response = (int*)malloc(sizeof(int) * n);
+	if (check_response == NULL) {
+		fprintf(stderr, "메모리 할당 실패\n");
+		exit(1);
+	}
 
 	for (int i = 0; i < n; i++){
-		check_response[i] = 0;
+		check_response[i] = 0; // 
 		remain_run_time[i] = p[i].run_time;
 		total_run_time += p[i].run_time;
 	}
@@ -47,7 +63,7 @@ void SRT_Process_System(Process* p, int n) {
 		{
 			for (int i = 0; i < n; i++){ // 완료되지 않았으며 현재 최소작업 시간보다  남은 실행시간이 작을 경우 
 				if ((p[i].completed == false) && (shortest_remain_time > remain_run_time[i]))  {
-					shortest_remain_time = remain_run_time[i]; // 최소 작업 시간 갱신
+					shortest_remain_time = remain_run_time[i]; // 최소 작업 시간 갱신b
 					k = i; // 최소 작업 프로세스 인덱스 갱신
 				}
 			}
@@ -55,10 +71,8 @@ void SRT_Process_System(Process* p, int n) {
 
 		/* 선택된 프로세스가 처음 시작될 경우 */
 		if (check_response[k] == 0){
-			check_response[k]++;
-			// 초기 실행이 아님을 표시
-			p[k].response_time = current_time;
-			// 실행중인 프로세스의 응답시간 저장
+			check_response[k] = 1; // 응답 표시
+			p[k].response_time = current_time; // 실행중인 프로세스의 응답시간 저장
 		}
 
 		remain_run_time[k]--;
@@ -177,24 +191,16 @@ void SRT_print_gantt_chart(Process* p, int n) {
 			}
 			else
 			{
-				/* 이전 프로세스와 다른 프로세스일 경우 */
-				if (pre_k != k)
-				{
-					distance = check_response[pre_k] + 1;
-					// 두 프로세스 시간 차이 저장
-					check_response[pre_k] = 0;
-					// 이전 프로세스 카운트 초기화
-					check_response[k]++;
-					// 현재 프로세스 카운트 증가
-
-					/* 두 프로세스 차이만큼 \b 출력 */
+				if (pre_k != k){ // 이전 프로세스와 다른 경우
+					distance = check_response[pre_k] + 1; // 두 프로세스 시간 차이 저장					
+					check_response[pre_k] = 0; // 이전 프로세스 카운트 초기화					
+					check_response[k]++; // 현재 프로세스 카운트 증가
+					
 					for (int i = 0; i < distance; i++)
 						printf("\b");
 
-					/* 이전 프로세스 ID 출력 */
 					printf("%s", p[pre_k].id);
 
-					/* 간격을 맞추어 공백 출력 */
 					for (int i = 0; i < distance - 2; i++)
 						printf(" ");
 
@@ -204,10 +210,9 @@ void SRT_print_gantt_chart(Process* p, int n) {
 				/* 같은 프로세스일 경우 */
 				else
 				{
-					check_response[k]++;
-					// 현재 프로세스 카운트 증가
-					printf("  ");
-					// 공백 출력
+					check_response[k]++; // 현재 프로세스 카운트 증가
+					printf("  "); 
+					
 				}
 			}
 
@@ -220,19 +225,13 @@ void SRT_print_gantt_chart(Process* p, int n) {
 		}
 		else // 현재 실행시간이 총 실행시간과 같을 경우
 		{
-			/* 이전 실행 시간 만큼 \b 출력 */
 			for (int i = 0; i < check_response[pre_k] + 1; i++)
 				printf("\b");
-
-			/* 현재 프로세스 ID 출력 */
 			printf("%s", p[k].id);
-
-			/* 간격을 맞추어 공백 출력 */
 			for (int i = 0; i < check_response[pre_k] - 1; i++)
 				printf(" ");
 
 			break;
-			// 반복문 탈출
 		}
 	}
 	for (int i = 0; i < check_response[pre_k] - (check_response[pre_k] / 2 ); i++)
@@ -371,9 +370,9 @@ void SRT_Scheduling(Process* p, int pc) {
 	SRT_Process_System(p, pc);
 
 	for (int i = 0; i < pc ; i++) {
-		p[i].turnAround_time = p[i].return_time - p[i].arrival_time;
-		total_waiting_time += p[i].waiting_time;
-		total_turnAround_time += p[i].turnAround_time;
+		p[i].turnAround_time = p[i].return_time - p[i].arrival_time; // 각 프로세스 소요 시간 계산
+		total_waiting_time += p[i].waiting_time; // 총 대기시간 저장
+		total_turnAround_time += p[i].turnAround_time; // 총 소요시간 
 		total_response_time += p[i].response_time;
 	}
 	printf("\tShortest Remaining Time Algorithm\n");

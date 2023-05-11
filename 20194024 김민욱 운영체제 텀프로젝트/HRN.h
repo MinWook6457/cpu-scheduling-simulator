@@ -1,7 +1,15 @@
 #ifndef __HRN__
 #define __HRN__
 /*
-	각 작업의 우선순위로 스케쥴링	
+	헤더명 : HRN.h (Highest Response Ratio Next Scheduling)
+	내용 : 각 작업의 우선순위로 스케쥴링	
+		   우선순위 = (대기시간 + CPU 사용시간) / (CPU 사용시간)
+		   SJF에서 발생할 수 있는 아사 현상 해결
+	입력 : 프로세스 포인터, 프로세스 갯수
+	출력 : HRN 스케쥴링으로 인한
+	각 프로세스별 대기시간, 평균 대기 시간,
+	각 프로세스별 응답시간, 평균 응답시간,
+	각 프로세스별 반환 시간, 평균 반환 시간
 */
 #include "Process.h"
 #include "View_Table.h"

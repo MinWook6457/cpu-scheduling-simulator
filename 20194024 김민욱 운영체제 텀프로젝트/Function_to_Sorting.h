@@ -4,8 +4,8 @@
 #include "Process.h"
 #include <stdio.h>
 
-int compare_return_time(const void* a, const void* b) // ¿À¸§Â÷¼ø ºñ±³ ÇÔ¼ö ±¸Çö
-{
+// ¹ÝÈ¯½Ã°£ ÄüÁ¤·Ä ¸Å°³º¯¼ö·Î µé¾î°¥ ÇÔ¼ö - ¿À¸§Â÷¼ø
+int compare_return_time(const void* a, const void* b){
 	Process p1 = *(Process*)a;
 	Process p2 = *(Process*)b;
 
@@ -22,8 +22,8 @@ void qsort_return_time(Process* p, int n) {
 	qsort(p, n, sizeof(Process), compare_return_time);
 }
 
-int compare_priority_time(const void* a, const void* b) // ¿À¸§Â÷¼ø ºñ±³ ÇÔ¼ö ±¸Çö
-{
+// ¿ì¼±¼øÀ§ ÄüÁ¤·Ä ¸Å°³º¯¼ö·Î µé¾î°¥ ÇÔ¼ö - ¿À¸§Â÷¼ø
+int compare_priority_time(const void* a, const void* b){
 	Process p1 = *(Process*)a;
 	Process p2 = *(Process*)b;
 
@@ -47,8 +47,9 @@ void qsort_priority_time(Process* p, int n) {
 	qsort(p, n, sizeof(Process), compare_priority_time);
 }
 
-int compare_run_time(const void* a, const void* b) // ¿À¸§Â÷¼ø ºñ±³ ÇÔ¼ö ±¸Çö
-{
+
+// ½ÇÇà½Ã°£ ÄüÁ¤·Ä ¸Å°³º¯¼ö·Î µé¾î°¥ ÇÔ¼ö - ¿À¸§Â÷¼ø
+int compare_run_time(const void* a, const void* b) {
 	Process p1 = *(Process*)a;
 	Process p2 = *(Process*)b;
 
@@ -65,8 +66,9 @@ void qsort_run_time(Process* p, int n) {
 	qsort(p, n, sizeof(Process), compare_run_time);
 }
 
-int compare_arrival_time(const void* a, const void* b) // ¿À¸§Â÷¼ø ºñ±³ ÇÔ¼ö ±¸Çö
-{
+
+// µµÂø½Ã°£ ÄüÁ¤·Ä ¸Å°³º¯¼ö·Î µé¾î°¥ ÇÔ¼ö - ¿À¸§Â÷¼ø
+int compare_arrival_time(const void* a, const void* b) {
 	Process p1 = *(Process*)a;
 	Process p2 = *(Process*)b;
 
@@ -78,6 +80,7 @@ int compare_arrival_time(const void* a, const void* b) // ¿À¸§Â÷¼ø ºñ±³ ÇÔ¼ö ±¸Ç
 
 	return 0;
 }
+
 // µµÂø½Ã°£À» ±âÁØÀ¸·Î (Äü)Á¤·ÄÇÒ ÇÔ¼ö
 void qsort_arrival_time(Process* p, int n) {
 	qsort(p, n, sizeof(Process), compare_arrival_time);
