@@ -23,7 +23,6 @@ if priority(current_process) = priority(prior_process) :- then execute the proce
 #include "Function_to_Sorting.h"
 
 void PPS_print_gantt_chart(Process* p, int n) {
-	textcolor(6);
 	printf("\tPreemptive Priority Scheduling\n");
 	int current_time = 0, previous_time = 0; // 현재 프로세스 시간과 이전 프로세스 시간 변수
 	int total_run_time = 0; // 총 실행 시간을 저장할 변수 

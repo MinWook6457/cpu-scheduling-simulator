@@ -50,6 +50,11 @@ int main() {
 
 	Process* process = (Process*)malloc(sizeof(Process) * process_count); // 프로세스 개수 만큼 동적할당
 
+	if (process == NULL) {
+		fprintf(stderr, "메모리 할당 실패\n");
+		exit(1);
+	}
+
 	for (int i = 0; i < process_count; i++) { // 파일에서 프로세스id, 도착시간, 반환시간, 우선순위를 받아 구조체에 저장
 		fscanf(fp, "%s %d %d %d", process[i].id, &process[i].arrival_time, &process[i].run_time, &process[i].priority);
 		// printf("%s %d %d %d\n", process[i].id, process[i].arrival_time, process[i].run_time, process[i].priority);
@@ -59,22 +64,21 @@ int main() {
 	// printf("%d", quantum);
 
 	FCFS_Scheduling(process, process_count);
-
+	printf("\n");
 	SJF_Scheduling(process, process_count);
-
+	printf("\n");
 	NPPS_Scheduling(process, process_count);
-
+	printf("\n");
 	HRN_Scheduling(process, process_count);
-
+	printf("\n");
 	PPS_Scheduling(process, process_count);
-
+	printf("\n");
 	RR_Scheduling(process, process_count,quantum);
-
+	printf("\n");
 	SRT_Scheduling(process, process_count);
 
 	free(process);
 
-	qsort
 
 	return 0;
 }

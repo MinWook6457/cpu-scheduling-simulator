@@ -81,7 +81,6 @@ void RR_Process_TurnAround_Time(Process* p, int n) { // 소요 시간 계산 함수
 	/* 대기시간 계산 함수 알고리즘과 동일 */
 void RR_print_gantt_chart(Process* p, int n, Quantum quantum) 
 {
-	textcolor(8);
 
 	int current_time = 0, total_run_time = 0; // 현재 시간과 총 실행 시간을 저장할 변수
 
@@ -281,7 +280,7 @@ void RR_Scheduling(Process* p, int pc, Quantum quantum) {
 		total_response_time += p[i].response_time; // 총 응답 시간 증가
 	}
 	
-	printf("Round Robin Scheduling\n");
+	printf("\tRound Robin Scheduling\n");
 
 	RR_print_gantt_chart(p, pc, quantum);
 

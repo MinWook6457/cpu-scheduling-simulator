@@ -20,8 +20,7 @@
 
 void HRN_print_gantt_chart(Process* p, int n,char *check_id)
 {	
-	textcolor(5);
-	printf("\Highest Response Ratio Next\n");
+	printf("\tHighest Response Ratio Next\n");
 
 	int check_num = 0; // 처음 실행된 PID를 추출하기 위한 변수
 
@@ -117,7 +116,7 @@ void HRN_print_gantt_chart(Process* p, int n,char *check_id)
 }
 
 void HRN_Scheduling(Process* p, int n) {
-	float current_time = 0.0;
+	int current_time = 0; // 현재시간 저장 할 변수
 	int priority_index; // 우선순위를 가지는 인덱스
 	int total_waiting_time = 0; // 총 프로세스 대기 시간
 	int total_turnAround_time = 0; // 총 프로세스 소요 시간
@@ -143,7 +142,7 @@ void HRN_Scheduling(Process* p, int n) {
 		hrr = -9999.0;
 		for (int i = 0; i < n; i++){
 			if ((p[i].arrival_time <= current_time) && (p[i].completed == false)) {// 가장 처음 들어온 프로세스 부터 실행
-				temp = (p[i].run_time + (current_time - p[i].arrival_time)) / p[i].run_time;
+				temp = ((double)p[i].run_time + ((double)current_time - (double)p[i].arrival_time)) / (double)p[i].run_time;
 				// (실행시간 + 대기시간) / 실행시간 으로 우선순위 계산
 				if (hrr < temp){ // 우선순위 갱신
 					hrr = temp;
@@ -171,7 +170,7 @@ void HRN_Scheduling(Process* p, int n) {
 	HRN_print_gantt_chart(p, n, check_id);
 
 	view_table(p, n);
-	/* 평균 대기시간, 턴어라운드 타임, 응답 시간 출력 */
+
 	printf("\n\tAverage Waiting Time     : %-2.2lf\n", (double)total_waiting_time / (double)n);
 	printf("\tAverage Turnaround Time  : %-2.2lf\n", (double)total_turnAround_time / (double)n);
 	printf("\tAverage Response Time    : %-2.2lf\n\n", (double)total_response_time / (double)n);

@@ -99,11 +99,7 @@ void FCFS_Scheduling(Process* p, int pc) {
 	Process_init(p, pc);
 
 	qsort_arrival_time(p, pc);
-	/*
-	for (int i = 0; i < pc; i++) {
-		printf("%s : %d\n", p[i].id,p[i].arrival_time);
-	}
-	*/
+	
 	/* 맨 처음 들어온 프로세스 실행 */
 	p[0].return_time = p[0].run_time; // 파일에서 받은 run_time을 return_time에 대입
 	p[0].turnAround_time = p[0].return_time - p[0].arrival_time; // 반환시간 = 실행시간 - 대기시간

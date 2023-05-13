@@ -16,7 +16,6 @@
 #include "Function_to_Sorting.h"
 
 void SRT_Process_System(Process* p, int n) {
-	textcolor(10);
 	int current_time = 0;
 
 	int total_run_time = 0;
@@ -32,7 +31,7 @@ void SRT_Process_System(Process* p, int n) {
 		exit(1);
 	}
 
-	int* check_response = (int*)malloc(sizeof(int) * n);
+	int* check_response = NULL;
 	check_response = (int*)malloc(sizeof(int) * n);
 	if (check_response == NULL) {
 		fprintf(stderr, "메모리 할당 실패\n");
@@ -225,7 +224,7 @@ void SRT_print_gantt_chart(Process* p, int n) {
 		}
 		else // 현재 실행시간이 총 실행시간과 같을 경우
 		{
-			for (int i = 0; i < check_response[pre_k] + 1; i++)
+			for (int i = 0; i < check_response[pre_k] + n; i++)
 				printf("\b");
 			printf("%s", p[k].id);
 			for (int i = 0; i < check_response[pre_k] - 1; i++)
@@ -247,6 +246,7 @@ void SRT_print_gantt_chart(Process* p, int n) {
 
 	current_time = 0;
 	printf("┃\n");
+	printf("┗");
 
 	/* 동일 알고리즘을 사용하여 하단 바 출력 */
 	while (current_time < total_run_time){
@@ -270,7 +270,7 @@ void SRT_print_gantt_chart(Process* p, int n) {
 		}
 
 		if (pre_k != k)
-			printf(" ");
+			printf("━");
 
 		printf("━━");
 
@@ -288,7 +288,7 @@ void SRT_print_gantt_chart(Process* p, int n) {
 	}
 
 	current_time = 0;
-	printf("┛\n");
+	printf("\b┛\n");
 
 	/* 프로세스 ID 출력과 같은 알고리즘으로 실행하며 시간 출력 */
 	while (current_time <= total_run_time){

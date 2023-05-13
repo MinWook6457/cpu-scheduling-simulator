@@ -48,7 +48,6 @@ void NPPS_Process_Time(Process* p, int n, char* check_id) {
 
 void NPPS_print_gantt_chart(Process* p, int n, char* check_id)
 {
-	textcolor(4);
 	printf("\tNon Preemptive Priority Scheduling\n");
 
 	printf("¦®");

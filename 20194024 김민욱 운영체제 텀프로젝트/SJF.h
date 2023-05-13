@@ -19,7 +19,6 @@
 Process tmp[100];
 void SJF_print_gantt_chart(Process* p, int n, char* check_id)
 {
-	textcolor(3);
 	printf("\tShortest Job First Scheduling\n");
 	int check_num = 0; // 처음 실행된 PID를 추출하기 위한 변수
 
