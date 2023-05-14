@@ -48,6 +48,27 @@ Quantum = 2
 ## Test Image
 ![HRN](https://github.com/MinWook6457/cpu-scheduling-simulator/assets/103114126/88efccac-89b2-4910-93aa-d29b7fbfc9fa)
 
+## PPS
+[[CODE]](https://github.com/MinWook6457/cpu-scheduling-simulator/blob/master/20194024%20%EA%B9%80%EB%AF%BC%EC%9A%B1%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%20%ED%85%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/PPS.h)
+
+
+## Test Image
+![PPS](https://github.com/MinWook6457/cpu-scheduling-simulator/assets/103114126/d5150c3a-8dbb-4807-9b5f-9f47649e84be)
+
+## RR
+[[CODE]](https://github.com/MinWook6457/cpu-scheduling-simulator/blob/master/20194024%20%EA%B9%80%EB%AF%BC%EC%9A%B1%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%20%ED%85%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/RR.h)
+
+
+## Test Image
+![RR](https://github.com/MinWook6457/cpu-scheduling-simulator/assets/103114126/26346f73-66d6-4f24-9364-19393ecb189d)
+
+## SRT
+[[CODE]](https://github.com/MinWook6457/cpu-scheduling-simulator/blob/master/20194024%20%EA%B9%80%EB%AF%BC%EC%9A%B1%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%20%ED%85%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/SRT.h)
+
+## Test Image
+![SRT](https://github.com/MinWook6457/cpu-scheduling-simulator/assets/103114126/2a403e64-283a-4731-8be5-834314be0ce1)
+
+
 
 
 
