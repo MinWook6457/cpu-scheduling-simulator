@@ -34,6 +34,21 @@ Quantum = 2
 ## Test Image
 ![SJF](https://github.com/MinWook6457/cpu-scheduling-simulator/assets/103114126/2dfd5916-c6fe-4e65-96df-ee146c68a4f5)
 
+## NPPS
+[[CODE]](https://github.com/MinWook6457/cpu-scheduling-simulator/blob/master/20194024%20%EA%B9%80%EB%AF%BC%EC%9A%B1%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%20%ED%85%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/NPPS.h)
+
+
+## Test Image
+![NPPS](https://github.com/MinWook6457/cpu-scheduling-simulator/assets/103114126/75f34af7-74b2-4093-a7ee-995f73a9d298)
+
+## HRN
+[[CODE]](https://github.com/MinWook6457/cpu-scheduling-simulator/blob/master/20194024%20%EA%B9%80%EB%AF%BC%EC%9A%B1%20%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C%20%ED%85%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/HRN.h)
+
+
+## Test Image
+![HRN](https://github.com/MinWook6457/cpu-scheduling-simulator/assets/103114126/88efccac-89b2-4910-93aa-d29b7fbfc9fa)
+
+
 
 
 ## Refer To
