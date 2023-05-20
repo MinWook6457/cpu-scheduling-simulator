@@ -4,6 +4,22 @@
 
 ## [김민욱] https://github.com/MinWook6457
 
+
+## 구성 요소
+| 소스 파일 | 설명 |
+|:---:|:---|
+| **Cpu-Scheduling-Simulator.c** | 프로그램 실행 시작지점인 main 함수 |
+| Process.h | 프로세스 정보가 입력된 헤더 |
+| Function_to_Sorting.h | 실행시간, 도착시간, 반환시간, 우선순위를 기준으로 정렬한 함수가 저장된 헤더 |
+| View_Table.h | 각 프로세스의 정보를 출력할 헤더 |
+| **FCFS.h** | First Come First Service Scheduling |
+| **SJF.h** | Shortest Job First Scheduling |
+| **NPPS.h** || None Preemptive Priority Scheduling |
+| **HRN.h** | Highest Response Ratio Next Scheduling |
+| **PPS.h** | Preemptive Priority Scheduling |
+| **RR.h** | Round Robin Scheduling |
+| **SRT.h** | Shortest Remaining Time Scheduling |
+
 ## Ex
 Quantum = 2
 
