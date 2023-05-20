@@ -1,7 +1,7 @@
 ## Operating System Term Project
 
-
-## Cpu Scheduling Simulator
+## CPU 스케줄링 시뮬레이터
+*Cpu Scheduling Simulator*
 
 
 ## [김민욱] https://github.com/MinWook6457
