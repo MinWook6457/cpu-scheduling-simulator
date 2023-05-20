@@ -14,7 +14,7 @@
 | View_Table.h | 각 프로세스의 정보를 출력할 헤더 |
 | **FCFS.h** | First Come First Service Scheduling |
 | **SJF.h** | Shortest Job First Scheduling |
-| **NPPS.h** || None Preemptive Priority Scheduling |
+| **NPPS.h** | None Preemptive Priority Scheduling |
 | **HRN.h** | Highest Response Ratio Next Scheduling |
 | **PPS.h** | Preemptive Priority Scheduling |
 | **RR.h** | Round Robin Scheduling |
