@@ -87,8 +87,6 @@ Quantum = 2
 
 
 ## Refer To
-[github] https://github.com/alstn2468/cpu-scheduling-simulator
-
 [github] https://github.com/tapaswenipathak/Visualization-of-CPU-Scheduling-Algorithms
 
 [github] https://github.com/AugustineAykara/CPU-Scheduling-Algorithm-In-C 
