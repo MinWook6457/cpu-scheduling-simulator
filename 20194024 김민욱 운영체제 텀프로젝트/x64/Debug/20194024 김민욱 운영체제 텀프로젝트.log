@@ -1,8 +1,0 @@
-﻿  Cpu-Scheduling-Simulator.c
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(38,12): warning C4098: 'PPS_print_gantt_chart': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(46,12): warning C4098: 'PPS_print_gantt_chart': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(320,12): warning C4098: 'PPS_Process_Time': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\PPS.h(328,12): warning C4098: 'PPS_Process_Time': 'void' 함수에서 값을 반환하고 있습니다.
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\SRT.h(152,19): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
-C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\20194024 김민욱 운영체제 텀프로젝트\Function_to_Sorting.h(44): warning C4715: 'compare_priority_time': 모든 제어 경로에서 값을 반환하지는 않습니다.
-  20194024 김민욱 운영체제 텀프로젝트.vcxproj -> C:\Users\kih25\OneDrive\바탕 화면\20194024 김민욱 운영체제 텀프로젝트\x64\Debug\20194024 김민욱 운영체제 텀프로젝트.exe
